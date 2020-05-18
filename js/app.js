@@ -1,4 +1,6 @@
+import { API } from './api.js';
 import * as UI from './interfaz.js';
+
 //console.log(UI);
 
 UI.formularioBuscar.addEventListener('submit', e => {
@@ -23,7 +25,11 @@ UI.formularioBuscar.addEventListener('submit', e => {
        },3000);
    } else {
        //Si el formulario está completo realizar la consulta a la API.
-
+       const api = new API(artista,cancion);
+       api.consularAPI()
+            .then(data => {
+                console.log(data);
+            })
    }
-
+   
 });
